@@ -67,16 +67,14 @@ p {
 }
 
 .card {
+    background:white;
+    border: 1.5px solid white;
+        border-left: 5px solid #fa52a9;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
     width: 100%;
-    max-width: 660px;
-    margin: 0 0 2rem 0;
-    padding: 2rem 2rem 2rem 2.25rem;
-    background-color: white;
-    border: none;
-    border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid #fa52a9;
-    box-sizing: border-box;
 }
 
 .tags {
@@ -87,20 +85,14 @@ p {
 }
 
 .tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.45rem 1rem;
-    border-radius: 999px;
-    border: 1.5px solid rgba(21, 21, 21, 0.2);
     background: rgba(255, 255, 255, 0.5);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #151515;
-    cursor: default;
-    backdrop-filter: blur(4px);
+    border: 1.5px solid rgba(21, 21, 21, 0.2);
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    color: rgba(21, 21, 21, 0.7);
     transition: background 0.2s, border-color 0.2s;
 }
-
 .tag:hover {
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(21, 21, 21, 0.4);
