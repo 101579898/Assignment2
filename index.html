@@ -33,19 +33,20 @@
                 Additionally, Tone provides high-performance building blocks to create your own synthesizers, effects,
                 and complex control signals.</p>
         </div>
-        <div class="scroll-hint">
+        <div class="scroll-hint" onclick="document.getElementById('player').scrollIntoView({behavior:'smooth'})">
             <div class="icon">↓</div>
             Try the playable album below
         </div>
-    </div>
+    </div> 
 
-    <div class="container">
+    <div class="container" id="player">
         <div class="card">
             <h2>Playable Album</h2>
             <p>Click the button to play a note:</p>
             <button onclick="playNote()">Play Note</button>
         </div>
     </div>
+    
 </body>
 
 </html>
