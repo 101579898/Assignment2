@@ -134,3 +134,15 @@ p {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(6px); }
 }
+
+.cardfull{
+    width: 100%;
+   max-width: 1000px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+}
