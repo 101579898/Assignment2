@@ -1,23 +1,51 @@
 <!DOCTYPE HTML>
 <html>
-	<head>	
-		<meta charset="utf-8" />
-		<title>Simple HTML</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- LOAD Tone.js from unpkg -->
-		<script src="https://unpkg.com/tone"></script>
-		<script>
-			function playNote() {
-				// create a synth
-				const synth = new Tone.Synth().toDestination();
-				// play a note from that synth
-				synth.triggerAttackRelease("C4", "8n");
-			}
-		</script>
+     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<head>
+    <meta charset="utf-8" />
+    <title>Simple HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css">
+    <!-- LOAD Tone.js from unpkg -->
+    <script src="https://unpkg.com/tone"></script>
+    <script>
+        function playNote() {
+            // create a synth
+            const synth = new Tone.Synth().toDestination();
+            // play a note from that synth
+            synth.triggerAttackRelease("C4", "8n");
+        }
+    </script>
 
-	</head>
-	<body>
-		<h1>Simple HTML5 Tone.js Demo</h1>
-		<button onclick="playNote()">Click me to play note!</button>
-	</body>
+</head>
+
+<body>
+    <div class="container pt-5">
+        <h1>Tone.js</h1>
+
+        <p class="subtitle">Create a Playable Album — synthesized live in your browser</p>
+
+        <div class="card">
+            <p>Tone.js is a Web Audio framework for creating interactive music in the browser. The architecture of
+                Tone.js aims to be familiar to both musicians and audio programmers creating web-based audio
+                applications. On the high-level, Tone offers common DAW (digital audio workstation) features like a
+                global transport for synchronizing and scheduling events as well as prebuilt synths and effects.
+                Additionally, Tone provides high-performance building blocks to create your own synthesizers, effects,
+                and complex control signals.</p>
+        </div>
+        <div class="scroll-hint">
+            <div class="icon">↓</div>
+            Try the playable album below
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Playable Album</h2>
+            <p>Click the button to play a note:</p>
+            <button onclick="playNote()">Play Note</button>
+        </div>
+    </div>
+</body>
+
 </html>
