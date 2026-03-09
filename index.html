@@ -1,22 +1,14 @@
 <!DOCTYPE HTML>
 <html>
-     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <head>
+     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
     <meta charset="utf-8" />
     <title>Simple HTML</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css">
     <!-- LOAD Tone.js from unpkg -->
     <script src="https://unpkg.com/tone"></script>
-    <script>
-        function playNote() {
-            // create a synth
-            const synth = new Tone.Synth().toDestination();
-            // play a note from that synth
-            synth.triggerAttackRelease("C4", "8n");
-        }
-    </script>
-
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -39,9 +31,34 @@
         </div>
     </div> 
 
-  <div class="container" id="player">
+<div class="player-section" id="player">
     <div class="card card-full">
-        <p>Your music content goes here.</p>
+
+        <!-- nav bar -->
+        <nav>
+            <div class="nav-links">
+                <a href="#">home</a>
+                <a href="#">playlist</a>
+            </div>
+        </nav>
+
+        <!-- left side: vinyl + controls -->
+        <div class="player-col">
+            <div class="vinyl-wrap">
+                <div class="vinyl" id="vinyl"></div>
+                <div class="vinyl-arm" id="arm"></div>
+            </div>
+            <div class="song-title" id="songTitle">Addict</div>
+            <div class="song-artist" id="songArtist">silva hound</div>
+            <!-- controls etc -->
+        </div>
+
+        <!-- right side: playlist -->
+        <div class="playlist-col">
+            <div class="playlist-title">Playlist</div>
+            <div class="track-list" id="trackList"></div>
+        </div>
+
     </div>
 </div>
     
