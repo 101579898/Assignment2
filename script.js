@@ -1,7 +1,12 @@
-// all your Tone.js synths
 const synth = new Tone.Synth().toDestination();
 
-// all your functions
-function playTrack() {
-    synth.triggerAttackRelease("A4", "8n");
-}
+const playButton = document.getElementById('playButton');
+
+playButton.addEventListener('click', async () => {
+    // Start Tone.js context if not running
+    if (Tone.context.state !== 'running') {
+        await Tone.start();
+    }
+    // Play a note
+    synth.triggerAttackRelease("C4", "8n");
+}); 

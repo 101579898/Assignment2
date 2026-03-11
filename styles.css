@@ -150,3 +150,56 @@ p {
     width: 100%;
     padding: 3rem;
 }
+.cd-wrap {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1.8rem;
+}
+
+.cd-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* keeps the png proportions */
+    animation: spin 6s linear infinite paused;
+}
+
+.cd-img.playing {
+    animation-play-state: running;
+}
+
+/* Button styles */
+.btn-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: #fa52a9;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(250, 82, 169, 0.3);
+}
+
+.btn-circle:hover {
+    background: #e04595;
+    transform: scale(1.05);
+}
+
+.btn-circle:active {
+    transform: scale(0.95);
+}
+
+.btn-play {
+    /* Specific styles for play button if needed */
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
