@@ -167,7 +167,6 @@ p {
     animation-play-state: running;
 }
 
-/* Button styles */
 .btn-circle {
     width: 60px;
     height: 60px;
@@ -194,7 +193,8 @@ p {
 }
 
 .btn-play {
-    /* Specific styles for play button if needed */
+    margin-right: 1.5rem;
+    color: black;
 }
 
 .controls {
