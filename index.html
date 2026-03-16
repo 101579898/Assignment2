@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
     <meta charset="utf-8" />
     <title>Simple HTML</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,30 +25,52 @@
                 applications. On the high-level, Tone offers common DAW (digital audio workstation) features like a
                 global transport for synchronizing and scheduling events as well as prebuilt synths and effects.
                 Additionally, Tone provides high-performance building blocks to create your own synthesizers, effects,
-                and complex control signals.</p>
+                and complex control signals.
+                I found this javascript looking at the previous student examples, I thought it'd be pretty cool. I
+                wondered if there's a different approach you can take with this and the results of what i could do is
+                below.</p>
         </div>
         <div class="scroll-hint" onclick="document.getElementById('player').scrollIntoView({behavior:'smooth'})">
             <div class="icon">↓</div>
             Try the playable album below
         </div>
-    </div> 
+    </div>
 
-<div class="player-section" id="player">
-    <div class="card card-full">
-        <div class="player-col">
-            <div class="vinyl-wrap">
-                <div class="vinyl" id="vinyl"></div>
+
+
+    <div class="player-section">
+        <div class="player-card">
+            <div class="player-info">
+                <img src="images/vinyl.webp" alt="vinyl" class="cd" alt="Vinyl Record" />
+                 <div class="vinyl-arm" id="arm"></div>
+                <div class="song-title" id="songtitle">Lover/Friend</div>
+                <div class="song-artist" id="songartist">KAYTRANADA</div>
+                <div class="song-desc" id="songdesc">Lover/Friend is a song by KAYTRANADA, released in 2021. It features a blend
+                    of electronic and R&B elements, showcasing KAYTRANADA's signature production style. The track is known for
+                    its smooth beats and catchy melodies, making it a standout in KAYTRANADA's discography.</div>
+                <div class="waveform" id="waveform"></div>
+                <div class="progress-wrap" id="progressWrap">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progressFill"></div>
+                    </div>
+                    <div class="time">
+                        <span id="timeelapsed">0:00</span>
+                        <span id="timetotal">1:00</span>
+                    </div>
+                </div>
+                <div class="player-controls">
+                    <button class="btn-circle btn-skip" id="btnPrev">⏮</button>
+                    <button class="btn-circle btn-play" id="btnPlay">▶</button>
+                    <button class="btn-circle btn-skip" id="btnNext">⏭</button>
+                </div>
             </div>
-            <div class="song-title" id="songTitle">play me!!</div>
-        </div>
-
-        <div class="player-col">
-            <div class="controls">
-                <button class="btn-circle btn-play" id="playButton">▶</button>
+            <div class="playlist-col">
+                <div class="playlist-title">Playlist</div>
+                <div class="track-list" id="trackList"></div>
             </div>
         </div>
     </div>
-</div>
-    
 </body>
+</body>
+
 </html>

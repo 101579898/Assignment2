@@ -2,6 +2,15 @@ html {
     scroll-behavior: smooth;
 }
 
+:root {
+    --pink: #fa52a9;
+    --pink-light: #ff7ac1;
+    --pink-faint: rgba(250, 82, 169, 0.1);
+    --gray: #f5f5f5;
+    --text: #333;
+    --text-light: #666;
+}
+
 body {
     background-color: #ffd9ed;
     font-family: 'DM Sans', sans-serif;
@@ -67,7 +76,7 @@ p {
 }
 
 .card {
-    background:white;
+    background: white;
     border: 1.5px solid white;
     border-left: 5px solid #fa52a9;
     border-radius: 12px;
@@ -93,6 +102,7 @@ p {
     color: rgba(21, 21, 21, 0.7);
     transition: background 0.2s, border-color 0.2s;
 }
+
 .tag:hover {
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(21, 21, 21, 0.4);
@@ -131,9 +141,20 @@ p {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
 }
+
+
+
+
 
 /* THE PLAYER OMG HELP ME AGHHHHH */
 .player-section {
@@ -142,64 +163,354 @@ p {
     padding: 3rem 2rem 5rem;
 }
 
-.card-full {
+.player-card {
     background: #ffffff;
     border-radius: 32px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     max-width: 1000px;
     width: 100%;
     padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    position: relative;
+    overflow: hidden;
 }
-.cd-wrap {
+
+.player-card::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--pink-faint) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 60px;
+    left: 100px;
+    pointer-events: none;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cd {
     width: 200px;
     height: 200px;
     margin-bottom: 1.8rem;
-}
-
-.cd-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;   /* keeps the png proportions */
+    object-fit: contain;
+    border-radius: 50%;
     animation: spin 6s linear infinite paused;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
 }
 
-.cd-img.playing {
+.cd.playing {
     animation-play-state: running;
 }
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.vinyl-arm {
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 4px;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--blue), var(--blue-light));
+    border-radius: 4px;
+    transform-origin: top center;
+    transform: rotate(-15deg);
+    transition: transform 0.6s ease;
+}
+
+.vinyl-arm.on {
+    transform: rotate(5deg);
+}
+
+.vinyl-arm::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.song-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--pink);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.song-artist {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.song-desc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    max-width: 300px;
+    text-align: center;
+}
+
+.read-more {
+    font-size: 0.8rem;
+    color: var(--pink);
+    cursor: pointer;
+    font-style: italic;
+}
+
+.waveform {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 30px;
+    margin: 0.8rem 0;
+}
+
+.progress-wrap {
+    margin: 0.8rem 0;
+    cursor: pointer;
+}
+
+.progress-bar-bg {
+    height: 4px;
+    background: var(--gray);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--pink-light), var(--pink));
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.3s linear;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.wave-bar {
+    flex: 1;
+    border-radius: 2px;
+    background: #f0e8f0;
+    transition: background 0.3s;
+}
+
 .btn-circle {
-    width: 60px;
-    height: 60px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     border: none;
-    background: #fa52a9;
-    color: white;
-    font-size: 1.5rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    box-shadow: 0 4px 12px rgba(250, 82, 169, 0.3);
-}
-
-.btn-circle:hover {
-    background: #e04595;
-    transform: scale(1.05);
-}
-
-.btn-circle:active {
-    transform: scale(0.95);
+    transition: all 0.2s;
+    font-size: 1rem;
 }
 
 .btn-play {
-    margin-right: 1.5rem;
-    color: black;
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 4px 16px rgba(250, 82, 169, 0.4);
 }
 
-.controls {
+.btn-play:hover {
+    background: #e0409a;
+    transform: scale(1.05);
+}
+
+.btn-pause {
+    background: var(--pink-light);
+    color: var(--pink);
+}
+
+.btn-pause:hover {
+    background: var(--pink);
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-skip {
+    background: var(--gray);
+    color: var(--text-light);
+}
+
+.btn-skip:hover {
+    background: var(--pink-faint);
+    color: var(--pink);
+}
+
+.playlist-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--pink);
+    margin-bottom: 1.5rem;
+}
+
+.track-list {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
     gap: 1rem;
-    margin-top: 2rem;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    background: var(--gray);
+}
+
+.track-item:hover {
+    background: var(--pink-faint);
+    border-color: var(--pink-light);
+}
+
+.track-item.active {
+    background: white;
+    border-color: var(--pink);
+    box-shadow: 0 4px 16px rgba(250, 82, 169, 0.15);
+}
+
+.track-thumb-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1.5px solid var(--pink-light);
+}
+
+.track-info .track-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.track-info .track-by {
+    font-size: 0.75rem;
+    color: var(--pink);
+    margin-top: 2px;
+}
+
+.track-duration {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.track-playing-indicator {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-left: auto;
+    display: none;
+}
+
+.track-item.active .track-playing-indicator {
+    display: block;
+}
+
+.track-item.active .track-duration {
+    display: none;
+}
+
+.bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 16px;
+}
+
+.bar {
+    width: 3px;
+    border-radius: 2px;
+    background: var(--pink);
+    animation: barBounce 0.8s ease-in-out infinite alternate;
+}
+
+.bar:nth-child(1) {
+    height: 8px;
+    animation-delay: 0s;
+}
+
+.bar:nth-child(2) {
+    height: 14px;
+    animation-delay: 0.2s;
+}
+
+.bar:nth-child(3) {
+    height: 6px;
+    animation-delay: 0.4s;
+}
+
+.bar:nth-child(4) {
+    height: 12px;
+    animation-delay: 0.1s;
+}
+
+@keyframes barBounce {
+    from {
+        transform: scaleY(0.4);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+.paused-state .bar {
+    animation-play-state: paused;
 }
