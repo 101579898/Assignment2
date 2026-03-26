@@ -3,8 +3,8 @@ html {
 }
 
 :root {
-    --pink: #fa52a9;
-    --pink-light: #ff7ac1;
+    --pink: #000000;
+    --pink-light: #000000;
     --pink-faint: rgba(250, 82, 169, 0.1);
     --gray: #f5f5f5;
     --text: #333;
@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    background-color: #ffd9ed;
+    background-color: #1d1d1d;
     font-family: 'DM Sans', sans-serif;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ h1 {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: clamp(4rem, 12vw, 7.5rem);
-    color: rgb(21, 21, 21);
+    color: rgb(255, 255, 255);
     text-align: left;
     letter-spacing: -0.03em;
     line-height: 1;
@@ -46,7 +46,7 @@ h1 {
 
 .subtitle {
     font-size: 1.25rem;
-    color: rgba(21, 21, 21, 0.55);
+    color: rgba(180, 180, 180, 0.55);
     font-weight: 400;
     margin: 0 0 2.5rem 0;
     line-height: 1.4;
@@ -62,7 +62,7 @@ h2 {
     text-align: left;
     padding: 0;
     margin: 0 0 0.75rem 0;
-    color: #151515;
+    color: #c0c0c0;
 }
 
 p {
@@ -78,7 +78,7 @@ p {
 .card {
     background: white;
     border: 1.5px solid white;
-    border-left: 5px solid #fa52a9;
+    border-left: 5px solid #4c4c4c;
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 2rem;
@@ -113,7 +113,7 @@ p {
     align-items: center;
     gap: 0.75rem;
     cursor: pointer;
-    color: rgba(21, 21, 21, 0.6);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.95rem;
     font-weight: 400;
     text-align: left;
@@ -182,7 +182,7 @@ p {
     position: absolute;
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, var(--pink-faint) 0%, transparent 70%);
+    background: radial-gradient(circle, color black, transparent 70%);
     border-radius: 50%;
     top: 60px;
     left: 100px;
@@ -358,11 +358,11 @@ p {
 .btn-play {
     background: var(--pink);
     color: white;
-    box-shadow: 0 4px 16px rgba(250, 82, 169, 0.4);
+    box-shadow: 0 4px 16px rgba(136, 145, 209, 0.4);
 }
 
 .btn-play:hover {
-    background: #e0409a;
+    background: #ffffff;
     transform: scale(1.05);
 }
 
